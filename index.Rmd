@@ -1,5 +1,5 @@
 ---
-title: "mumutrying"
+title: "mumutrytry"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -17,7 +17,7 @@ library(ggrepel)
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### 全國平均家戶年所得比較台大學生家庭平均年所得
 
 ```{r}
 mydata <- readr::read_csv("/Users/linshumin/Desktop/學分大作戰/R 資料庫/期末專題/台大全國平均所得比較.csv")
