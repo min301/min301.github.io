@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>覺得厲害</h1>
-  </body>
-</html>
+---
+title: "mumutrying"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
+---
 
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+mydata <- readr::read_csv("/Users/linshumin/Desktop/學分大作戰/R 資料庫/期末專題/台大全國平均所得比較.csv")
+ggplot(data = mydata) +
+  geom_line(aes(x = Years, y = 台大平均年所得, group = 1, color = "NTU")) +
+  geom_point(aes(x = Years, y = 台大平均年所得, color = "NTU")) + 
+  geom_line(aes(x = Years, y = 全國平均年所得, group = 1, color = "Taiwan")) +
+  geom_point(aes(x = Years, y = 全國平均年所得, color = "Taiwan")) +
+  scale_color_manual(values = c("#9393FF", "#AAAAFF"), name = "place") +
+  labs(x = "Years Group", y = "Average Annual Income")
+```
