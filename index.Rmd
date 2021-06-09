@@ -1,26 +1,25 @@
 ---
-title: "mumu try"
-output: html_document
+title: "mumutrytry"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
 ---
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>mumu trying</title>
-  </head>
-  <body>
-    <h1>全國平均家戶年所得比較台大學生家庭平均年所得</h1>
-  </body>
-</html>
 
 ```{r setup, include=FALSE}
+library(flexdashboard)
 library(dplyr)
 library(ggplot2)
 library(ggrepel)
 ```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
 
-```{r, echo=FALSE}
+### 全國平均家戶年所得比較台大學生家庭平均年所得
+
+```{r}
 mydata <- readr::read_csv("/Users/linshumin/Desktop/學分大作戰/R 資料庫/期末專題/台大全國平均所得比較.csv")
 ggplot(data = mydata) +
   geom_line(aes(x = Years, y = 台大平均年所得, group = 1, color = "NTU")) +
